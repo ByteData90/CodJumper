@@ -18,6 +18,7 @@ namespace CodJumper
             color.X = 0;
             color.Y = 1;
             color.Z = 2;
+            var credit = HudElem.CreateFontString(player, HudElem.Fonts.HudSmall, 14);     // Credit mainly to Slvr99
             var controls = HudElem.CreateFontString(player, HudElem.Fonts.HudSmall, 14f); //  I didn't use loop because I have few elements here to construct
             var controls2 = HudElem.CreateFontString(player, HudElem.Fonts.HudSmall, 14f);
             var controls3 = HudElem.CreateFontString(player, HudElem.Fonts.HudBig, 32f);
@@ -30,7 +31,10 @@ namespace CodJumper
             controls.SetText("^3E^7 Save Location");
             controls2.SetText("^3F^7 Teleport Location");
             controls3.SetText("CodJumper");
+            credit.SetText("Made Possible by ^1Slvr99");
 
+            credit.HorzAlign = HudElem.HorzAlignments.Left;
+            credit.VertAlign = HudElem.VertAlignments.Top;
             controls.HorzAlign = HudElem.HorzAlignments.Left;
             controls.VertAlign = HudElem.VertAlignments.Top;
             controls2.HorzAlign = HudElem.HorzAlignments.Left;
@@ -42,6 +46,10 @@ namespace CodJumper
             controls2.X = 10;
             controls.Y = 300;
             controls2.Y = 325;
+            credit.X = 10;
+            credit.Y = 350;
+            controls3.X = -10;
+            controls3.Y = 5;
             Tick += () => Monitor(player, saved);
         }
      
