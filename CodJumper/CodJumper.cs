@@ -39,10 +39,10 @@ namespace CodJumper
             controls2.X = 10;
             controls.Y = 300;
             controls2.Y = 325;
-            Tick += () => Monitor(player, controls, controls2, controls3);
+            Tick += () => Monitor(player);
         }
      
-        private void Monitor(Entity player, HudElem x, HudElem y, HudElem z)
+        private void Monitor(Entity player)
         {
             Vector3 saved = player.GetOrigin();  // Setting default saved position to where player spawned
             if (player.IsPlayer && player.IsAlive)
