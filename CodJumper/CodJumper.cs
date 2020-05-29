@@ -23,9 +23,12 @@ namespace CodJumper
             color.Y = 1;            // If I am not mistaken, color is just a Vector3 type. Was unable to find function or constructor to set values
             color.Z = 2;
 
-            HudElem controls = HudElem.CreateFontString(player, HudElem.Fonts.HudSmall, 14f); //  I didn't use loop because I have few elements here to construct
-            HudElem controls2 = HudElem.CreateFontString(player, HudElem.Fonts.HudSmall, 14f);
-            HudElem controls3 = HudElem.CreateFontString(player, HudElem.Fonts.Bold, 20f);
+            var controls = HudElem.CreateFontString(player, HudElem.Fonts.HudSmall, 14f); //  I didn't use loop because I have few elements here to construct
+            var controls2 = HudElem.CreateFontString(player, HudElem.Fonts.HudSmall, 14f);
+            var controls3 = HudElem.CreateFontString(player, HudElem.Fonts.Bold, 20f);
+            controls.Archived = true;
+            controls2.Archived = true;
+            controls3.Archived = true;
 
             controls3.GlowColor = color;
 
