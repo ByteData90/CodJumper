@@ -1,4 +1,5 @@
 ﻿using InfinityScript;
+using static InfinityScript.GSCFunctions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,13 @@ namespace CodJumper
         public CodJumper()
 
         {
-            PlayerConnected += OnPlayerSpawned; // Unsure how this is used... 
+            PlayerConnected += OnPlayerConnect; // Unsure how this is used... 
         }
-
-        private void OnPlayerSpawned(Entity player)
+        private void OnPlayerConnect(Entity player)
+        {
+            player.SpawnedPlayer += () => OnPlayerSpawned(player);
+        }
+        privated void OnPlayerSpawned(Entity player)
 
         {
             Vector3 saved = player.GetOrigin();  // Setting default saved position to where player spawned 
@@ -51,13 +55,13 @@ namespace CodJumper
 
             while (player.IsAlive) // Maybe this is the problem... 
             {
-                Wait(20);
+                Wait(10f);
                 if (player.MeleeButtonPressed())
                 {
                         saved = player.GetOrigin();
                         GSCFunctions.IPrintLn("Saved Location");
                 }
-                Wait(20);
+                Wait(10f);
                 if (player.UseButtonPressed()) 
                 {
                         player.SetOrigin(saved);
