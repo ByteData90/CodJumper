@@ -18,7 +18,7 @@ namespace CodJumper
         {
             player.SpawnedPlayer += () => OnPlayerSpawned(player);
         }
-        privated void OnPlayerSpawned(Entity player)
+        private void OnPlayerSpawned(Entity player)
 
         {
             Vector3 saved = player.GetOrigin();  // Setting default saved position to where player spawned 
@@ -53,24 +53,16 @@ namespace CodJumper
             controls2.Y = 325;
             controls3.Y = 15;
 
-            while (player.IsAlive) // Maybe this is the problem... 
-            {
-                Wait(10f);
                 if (player.MeleeButtonPressed())
                 {
                         saved = player.GetOrigin();
                         GSCFunctions.IPrintLn("Saved Location");
                 }
-                Wait(10f);
-                if (player.UseButtonPressed()) 
-                {
-                        player.SetOrigin(saved);
-                        GSCFunctions.IPrintLn("Teleported");
-                }
+            if (player.UseButtonPressed())
+            {
+                player.SetOrigin(saved);
+                GSCFunctions.IPrintLn("Teleported");
             }
-            controls.Destroy(); // Coming out of loop due to player death is expected to destroy hud elements.
-            controls2.Destroy();
-            controls3.Destroy();
         }
     }
 }
