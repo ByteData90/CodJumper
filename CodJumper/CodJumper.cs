@@ -50,13 +50,11 @@ namespace CodJumper
                 if (player.MeleeButtonPressed())
                 {
                     saved = player.GetOrigin();
-                    BaseScript.Wait(20);
                     GSCFunctions.IPrintLnBold("Saved Location");
                 }
                 if (player.UseButtonPressed())
                 {
                     player.SetOrigin(saved);
-                    BaseScript.Wait(20);
                     GSCFunctions.IPrintLnBold("Teleported");
                 }
             }
