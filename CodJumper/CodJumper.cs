@@ -50,10 +50,10 @@ namespace CodJumper
             credit.Y = 350;
             controls3.X = -10;
             controls3.Y = 5;
-            Tick += () => Monitor(player, saved);
+            Tick += () => Monitor(player, ref saved);
         }
      
-        private void Monitor(Entity player, Vector3 saved)
+        private void Monitor(Entity player, ref Vector3 saved)
         {
             if (player.IsPlayer && player.IsAlive)
             {
