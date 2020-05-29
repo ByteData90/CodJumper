@@ -5,12 +5,15 @@ namespace CodJumper
 {
     public class CodJumper : BaseScript
     {
+        
         public CodJumper()
         {
+            
             PlayerConnected += OnPlayerConnect; // Unsure how this is used... 
         }
         private void OnPlayerConnect(Entity player)
         {
+            Vector3 saved = player.GetOrigin();
             Vector3 color;
             color.X = 0;
             color.Y = 1;
@@ -39,23 +42,22 @@ namespace CodJumper
             controls2.X = 10;
             controls.Y = 300;
             controls2.Y = 325;
-            Tick += () => Monitor(player);
+            Tick += () => Monitor(player, saved);
         }
      
-        private void Monitor(Entity player)
+        private void Monitor(Entity player, Vector3 saved)
         {
-            Vector3 saved = player.GetOrigin();  // Setting default saved position to where player spawned
             if (player.IsPlayer && player.IsAlive)
             {
                 if (player.MeleeButtonPressed())
                 {
                     saved = player.GetOrigin();
-                    GSCFunctions.IPrintLnBold("Saved Location");
+                    player.IPrintLnBold("Saved Location");
                 }
                 if (player.UseButtonPressed())
                 {
                     player.SetOrigin(saved);
-                    GSCFunctions.IPrintLnBold("Teleported");
+                    player.IPrintLnBold("Teleported");
                 }
             }
         }
