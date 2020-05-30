@@ -21,12 +21,13 @@ namespace CodJumper
             var credit = HudElem.CreateFontString(player, HudElem.Fonts.HudSmall, 14);     // Credit mainly to Slvr99
             var controls = HudElem.CreateFontString(player, HudElem.Fonts.HudSmall, 14f); //  I didn't use loop because I have few elements here to construct
             var controls2 = HudElem.CreateFontString(player, HudElem.Fonts.HudSmall, 14f);
-            var controls3 = HudElem.CreateFontString(player, HudElem.Fonts.HudBig, 32f);
+            var controls3 = HudElem.CreateFontString(player, HudElem.Fonts.HudBig, 14f);
             controls.Archived = true;
             controls2.Archived = true;
             controls3.Archived = true;
 
             controls3.GlowColor = color;
+            controls3.GlowAlpha = 1;
 
             controls.SetText("^3E^7 Save Location");
             controls2.SetText("^3F^7 Teleport Location");
